@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Conditions Case Study</title>
+<meta name="description" content="Conditions: a forecast and pressure map for a rationed internet. A speculative product case study by Isabella Tedesco.">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+<div class="sky" aria-hidden="true"><i data-l="clear"></i><i data-l="busy"></i><i data-l="slow"></i><i data-l="vslow"></i><div class="grain"></div></div>
+
+<div class="layout">
+  <aside class="side" aria-label="Case study">
+    <div class="crumb"><span>Isabella Tedesco</span><span>/</span><b>Case study</b></div>
+    <div class="brand">
+      <img src="img/icon-dusk.png" alt="" width="44" height="44">
+      <div><h1>Conditions</h1><p>A forecast and pressure map for a rationed internet</p></div>
+    </div>
+    <dl class="meta">
+      <dt>Type</dt><dd>Speculative product</dd>
+      <dt>Setting</dt><dd>Atlanta, 2050</dd>
+      <dt>Role</dt><dd>Research, UX/UI, brand, campaign</dd>
+      <dt>Tools</dt><dd>Figma</dd>
+    </dl>
+
+    <div class="pf" aria-live="polite">
+      <div class="pf-head"><span class="pf-k">Page forecast</span><span class="pf-k" id="pfStep">01 / 10</span></div>
+      <div class="pf-word" id="pfWord"><i class="dot"></i><span>Clear</span></div>
+      <div class="pf-bars" id="pfBars"><i class="pf-now" id="pfNow" aria-hidden="true"></i></div>
+      <p class="pf-note" id="pfNote">Normal speed. Read as usual.</p>
+    </div>
+
+    <nav aria-label="Sections"><ol class="nav" id="nav"></ol></nav>
+    <div class="side-foot">All zones, rules, speeds and counts are illustrative.</div>
+  </aside>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" aria-label="Conditions">
+      <video class="poster" autoplay muted loop playsinline preload="auto" poster="video/dusk-city-poster.jpg" aria-hidden="true"><source src="video/dusk-city.mp4" type="video/mp4"></video>
+      <svg class="iso" id="heroIso" viewBox="0 0 100 100" aria-hidden="true"><g></g></svg>
+      <div class="hero-in">
+        <div>
+          <div class="hero-chips">
+            <span class="chip"><i class="lv" style="background:var(--slow)"></i>Slow, 4 to 9 PM</span>
+            <span class="chip">Speculative product</span>
+            <span class="chip">Atlanta, 2050</span>
+          </div>
+          <div class="wordmark-wrap"><img class="wordmark" src="img/wordmark.png" alt="Conditions" width="1824" height="262"></div>
+          <p class="tagline">The forecast for your internet.</p>
+        </div>
+        <img class="hero-phone" src="screens/forecast-block.webp" alt="The Forecast screen: Slow, 4 PM to 9 PM, likely, 82% sure." width="511" height="1066">
+      </div>
+      <div class="scroll-cue" aria-hidden="true">Scroll<i></i></div>
+    </section>
+
+    <!-- 01 OVERVIEW -->
+    <section class="chapter" id="overview" data-l="clear" data-title="Overview" data-note="Normal speed. Read as usual.">
+      <p class="label"><i class="lv" style="background:var(--clear)"></i>01 · Overview</p>
+      <div class="ov">
+        <h2 class="statement words">A storm has no administrator. <em>Connectivity does.</em></h2>
+        <p class="lede rv">In 2050, AI demand has outgrown the power grid and cities ration the internet at peak hours. Someone sets the threshold, draws the zones and decides who goes first. Conditions borrows the language of weather to make those decisions visible, so people can plan around them and push back on them.</p>
+      </div>
+      <div class="facts rv">
+        <div><span class="k">The product</span><span>12 screens, 17 variations, a home light</span></div>
+        <div><span class="k">For</span><span>Households, farms and neighborhood organizers</span></div>
+        <div><span class="k">Deliverables</span><span>App, identity, ad spots, billboards, posters</span></div>
+        <div><span class="k">Built from</span><span>Real filings on data centers and the grid</span></div>
+      </div>
+    </section>
+
+    <!-- 02 WORLD -->
+    <section class="chapter" id="world" data-l="vslow" data-title="The world" data-note="Emergency use first. Red shows up rarely. This is the one time.">
+      <div class="chapter__head">
+        <div><p class="label"><i class="lv" style="background:var(--vslow-true)"></i>02 · The world</p><h2 class="words">The internet is a managed utility</h2></div>
+        <p class="lede rv">Built from real trends, so it reads less like science fiction and more like next decade's news.</p>
+      </div>
+      <div class="stack">
+        <div class="video-panel rv">
+          <video autoplay muted loop playsinline preload="metadata" poster="video/tower-hills-poster.jpg" aria-hidden="true"><source src="video/tower-hills.mp4" type="video/mp4"></video>
+          <p class="cap">Cities ration connectivity the way they ration water in a drought.</p>
+        </div>
+        <div class="lists">
+          <div class="panel rv"><span class="k">What changed</span>
+            <ul><li>AI demand has outgrown the power grid</li><li>Cities ration connectivity at peak demand</li><li>Households get a short, vague notice, never the reasoning behind it</li></ul></div>
+          <div class="panel rv" style="--d:1"><span class="k">What stays the same</span>
+            <ul><li>The internet still runs daily life: work, school, payments, care</li><li>Someone else still makes the rules about who gets priority</li></ul></div>
+        </div>
+        <div class="grid3">
+          <article class="panel stat rv">
+            <span class="k">Power goes to data centers</span>
+            <span class="num"><span data-count="80">80</span>%</span>
+            <p>of Georgia Power's new 10,000 MW serves data centers, in a $16.3B build regulators approved.</p>
+            <img src="img/evidence-datacenter.webp" alt="A data center campus" loading="lazy">
+          </article>
+          <article class="panel stat rv" style="--d:1">
+            <span class="k">Throttling hit emergencies</span>
+            <span class="num">1/<span data-count="200">200</span></span>
+            <p>The speed Verizon left Santa Clara County Fire during the 2018 Mendocino Complex fire.</p>
+            <img src="img/evidence-fire.webp" alt="A wildfire incident map" loading="lazy">
+          </article>
+          <article class="panel stat rv" style="--d:2">
+            <span class="k">Emergency rules exist</span>
+            <span class="num"><span data-count="202">202</span>(c)</span>
+            <p>Federal orders that let grid operators move data centers to backup power when supply runs short.</p>
+            <img src="img/evidence-doe.webp" alt="A Department of Energy order" loading="lazy">
+          </article>
+        </div>
+        <p class="src">Sources: AP News, CBS News, Ars Technica, U.S. Department of Energy. Full list at the end.</p>
+      </div>
+    </section>
+
+    <!-- 03 PROBLEM -->
+    <section class="chapter" id="problem" data-l="slow" data-title="The problem" data-note="Streaming slows. Calls stay steady.">
+      <div class="chapter__head">
+        <div><p class="label"><i class="lv" style="background:var(--slow)"></i>03 · The problem</p><h2 class="words">Invisible rules are hard to challenge</h2></div>
+        <p class="lede rv">Today you find out about a rule only when it affects you, and there is nothing to answer. Conditions moves the moment of knowing earlier and adds a way to respond.</p>
+      </div>
+      <div class="pipes">
+        <div class="panel pipe bad rv" data-run>
+          <span class="k">Today</span>
+          <ol><li style="--i:0"><b>1</b><span>Notification</span></li><li style="--i:1"><b>2</b><span>Disruption</span></li><li style="--i:2"><b>3</b><span>Adaptation</span></li></ol>
+          <p>A level and a time window. No reason, and no one to ask.</p>
+        </div>
+        <div class="panel pipe good rv" data-run style="--d:1">
+          <span class="k">With Conditions</span>
+          <ol><li style="--i:0"><b>1</b><span>Forecast</span></li><li style="--i:1"><b>2</b><span>Explanation</span></li><li style="--i:2"><b>3</b><span>Response</span></li></ol>
+          <ul class="ticks"><li>See what's coming, and when</li><li>Trace the cause and who decided</li><li>Question whether it's fair</li></ul>
+        </div>
+        <div class="panel lock rv" style="--d:2">
+          <img src="screens/lockscreen.webp" alt="Lock screen with a Conditions alert explaining an evening slowdown in plain words" width="511" height="1066" loading="lazy" data-zoom>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 PEOPLE -->
+    <section class="chapter" id="people" data-l="busy" data-title="People" data-note="A little slower. Save big downloads.">
+      <div class="chapter__head">
+        <div><p class="label"><i class="lv" style="background:var(--busy)"></i>04 · People</p><h2 class="words">People who live with the rules</h2></div>
+        <p class="lede rv">Three people, three saved places in the app. Each one needs a different answer from the same forecast.</p>
+      </div>
+      <div class="grid3">
+        <article class="panel person rv">
+          <div class="ph"><img src="img/persona-amara.webp" alt="A farm at the edge of a field" loading="lazy"><span class="chip"><i class="lv" style="background:var(--busy)"></i>Farm · Busy</span></div>
+          <div class="body"><h3>Amara</h3><span class="k">Rural farmer</span>
+            <p>Her farm runs on one unreliable line for equipment, payments and deliveries, with fewer fallbacks than city users.</p>
+            <p class="need">Needs to see where and when coverage fails.</p></div>
+        </article>
+        <article class="panel person rv" style="--d:1">
+          <div class="ph"><img src="img/persona-marcus.webp" alt="A suburban street" loading="lazy"><span class="chip"><i class="lv" style="background:var(--clear)"></i>Home · Clear</span></div>
+          <div class="body"><h3>Marcus</h3><span class="k">Parent, remote worker</span>
+            <p>One connection carries work calls, homework, streaming and a dozen smart devices. Slowdowns become a competition at home.</p>
+            <p class="need">Needs to know what's using it and plan around busy hours.</p></div>
+        </article>
+        <article class="panel person rv" style="--d:2">
+          <div class="ph"><img src="img/persona-janelle.webp" alt="A city block" loading="lazy"><span class="chip"><i class="lv" style="background:var(--slow)"></i>Block · Slow</span></div>
+          <div class="body"><h3>Janelle</h3><span class="k">Organizer</span>
+            <p>Her block mixes homes, small businesses, public Wi-Fi and four community groups. She asks if her area is treated differently.</p>
+            <p class="need">Needs to compare areas and challenge unfair rules.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 05 RESEARCH -->
+    <section class="chapter" id="research" data-l="clear" data-title="Research" data-note="Normal speed. Read as usual.">
+      <div class="chapter__head">
+        <div><p class="label"><i class="lv" style="background:var(--clear)"></i>05 · Research</p><h2 class="words">What to take from weather and network apps</h2></div>
+        <p class="lede rv">Weather apps already know how to deliver bad news calmly. Network tools know how to show depth. The audit kept the best of each.</p>
+      </div>
+      <div class="panel rv" style="overflow-x:auto">
+        <table class="audit">
+          <thead><tr><th>App</th><th>Take</th><th>Leave</th></tr></thead>
+          <tbody>
+            <tr><td>Watch Duty</td><td>Calm urgency; every update has a source and a time</td><td>Overlapping map icons</td></tr>
+            <tr><td>The Weather Channel</td><td>Decision-first cards and plain-language alerts</td><td>Too many competing modules</td></tr>
+            <tr><td>NOAA Live Radar</td><td>The map as hero, a few layers, floating controls</td><td>Small icon-only controls</td></tr>
+            <tr><td>Weather Underground</td><td>Neighbors' stations as a trusted source</td><td>Dense graphs, no summary</td></tr>
+            <tr><td>IP Tools, System Status</td><td>Depth for people who want it</td><td>Jargon and no clear verdict</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 class="rv" style="margin:40px 0 16px">Six rules from the audit</h3>
+      <div class="principles">
+        <article class="panel pr rv"><span class="n">01</span><span class="dotline"><i></i><i></i><i></i></span><h3>One verdict first</h3><p>Each screen leads with one word and one window: Slow, 4 to 9 PM.</p></article>
+        <article class="panel pr rv" style="--d:1"><span class="n">02</span><span class="dotline"><i></i><i></i><i></i></span><h3>Color plus a word</h3><p>A state color always comes with its name, so nobody has to decode it.</p></article>
+        <article class="panel pr rv" style="--d:2"><span class="n">03</span><span class="dotline"><i></i><i></i><i></i></span><h3>Show the source</h3><p>Every forecast says who made it, and says so when sources disagree.</p></article>
+        <article class="panel pr rv"><span class="n">04</span><span class="dotline"><i></i><i></i><i></i></span><h3>Plain language</h3><p>"Area over 90% busy," not "zone load threshold." No jargon.</p></article>
+        <article class="panel pr rv" style="--d:1"><span class="n">05</span><span class="dotline"><i></i><i></i><i></i></span><h3>Map first, card second</h3><p>Tap a zone and a card explains it in one sentence.</p></article>
+        <article class="panel pr rv" style="--d:2"><span class="n">06</span><span class="dotline"><i></i><i></i><i></i></span><h3>Calm urgency</h3><p>Serious without alarm. Red means Very slow and appears rarely.</p></article>
+      </div>
+    </section>
+
+    <!-- 06 SYSTEM -->
+    <section class="chapter" id="system" data-l="clear" data-title="Visual system" data-note="Normal speed. Read as usual.">
+      <div class="chapter__head">
+        <div><p class="label"><i class="lv" style="background:var(--clear)"></i>06 · Visual system</p><h2 class="words">Color means a state or a source</h2></div>
+        <p class="lede rv">Four levels named with words people already use. The bars grow like the forecast chart in the app, because they are the forecast chart in the app.</p>
+      </div>
+      <div class="stack">
+        <div class="panel">
+          <div class="levels" id="levels">
+            <div class="lvl pending"><b>Clear</b><span>Normal speed. Use it as usual.</span><code>#9CC8EE</code></div>
+            <div class="lvl pending"><b>Busy</b><span>A little slower. Save big downloads.</span><code>#F2C85B</code></div>
+            <div class="lvl pending"><b>Slow</b><span>Streaming slows. Calls stay steady.</span><code>#EC8F4D</code></div>
+            <div class="lvl pending"><b>Very slow</b><span>Emergency use first. Used rarely.</span><code>#B23F36</code></div>
+          </div>
+          <div class="swatches">
+            <span class="sw"><i style="background:#0F1B2D;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)"></i>Ink · text, the Authority</span>
+            <span class="sw"><i style="background:#2F66B3"></i>Action blue · buttons only</span>
+            <span class="sw"><i style="background:#fff"></i>Page · app background</span>
+            <span class="sw"><i style="background:#7C77BE"></i>Neighbors · community data</span>
+          </div>
+          <p class="note" style="margin:14px 0 0">Levels were renamed from Strained, Constrained and Severe, which were hard to tell apart.</p>
+        </div>
+
+        <div class="grads">
+          <div class="grad rv"><span class="k" style="color:rgba(255,255,255,.85)">Gradient 01</span><img class="ico" src="img/icon-blue.png" alt="App icon on the Clear Sky gradient" width="80" height="80"><div><b>Clear Sky</b><br><span>Clear days</span></div></div>
+          <div class="grad rv" style="--d:1"><span class="k" style="color:rgba(255,255,255,.85)">Gradient 02</span><img class="ico" src="img/icon-sand.png" alt="App icon on the Strained Dusk gradient" width="80" height="80"><div><b>Strained Dusk</b><br><span>Busy</span></div></div>
+          <div class="grad rv" style="--d:2"><span class="k" style="color:rgba(255,255,255,.85)">Gradient 03</span><img class="ico" src="img/icon-dusk.png" alt="App icon on the Constrained Evening gradient" width="80" height="80"><div><b>Constrained Evening</b><br><span>Slow, the evening peak</span></div></div>
+        </div>
+
+        <div class="typebox">
+          <div class="panel spec rv">
+            <span class="k" style="color:#5B6878">Archivo Bold · the verdict</span>
+            <div class="big" aria-live="off"><span class="word" id="typeWord">Slow</span><i class="dot" id="typeDot"></i></div>
+            <div class="row"><span>Headings only: screen titles, the forecast word, card headlines</span><span>4 PM to 9 PM</span></div>
+          </div>
+          <div class="panel faces rv" style="--d:1">
+            <span class="k">Typography</span>
+            <div class="face"><span class="aa" style="font-family:var(--display);font-weight:700">Aa</span><div><h3>Archivo Bold</h3><p>Sturdy, like signage on public infrastructure. One face to announce.</p></div></div>
+            <div class="face"><span class="aa" style="font-family:var(--sans);font-weight:400">Aa</span><div><h3 style="font-family:var(--sans);font-weight:600">IBM Plex Sans</h3><p>Body text, labels, times and numbers in weights 300 to 700. Clear digits, a calm civic tone. One face to explain.</p></div></div>
+          </div>
+        </div>
+
+        <div class="logo-stage">
+          <div class="panel logo-big pending" id="logoBig">
+            <svg id="logoIso" viewBox="0 0 100 100" aria-label="Isobar mark"><g></g></svg>
+            <span class="tag">Isobars: lines joining points of equal pressure</span>
+          </div>
+          <div class="stack">
+            <div class="panel rv">
+              <span class="k">Logo and app icon</span>
+              <h3 style="margin:10px 0 14px">The lines of a pressure map</h3>
+              <div class="icons">
+                <figure><img src="img/icon-blue.png" alt="Isobar icon on blue" width="80" height="80"><figcaption>Clear</figcaption></figure>
+                <figure><img src="img/icon-sand.png" alt="Isobar icon on sand" width="80" height="80"><figcaption>Busy</figcaption></figure>
+                <figure class="pick"><img src="img/icon-dusk.png" alt="Isobar icon on dusk, the chosen icon" width="80" height="80"><figcaption>Dusk · the pick</figcaption></figure>
+              </div>
+              <ul class="why" style="margin-top:18px"><li>Thicker lines stay readable at 29 to 60 px</li><li>One tight ring cluster gives the icon a focus</li><li>Dusk is when the evening slowdowns happen</li></ul>
+            </div>
+            <div class="panel wm-panel rv" style="--d:1"><img src="img/wordmark.png" alt="Conditions wordmark" width="1824" height="262" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 SCREENS -->
+    <section class="chapter" id="screens" data-l="busy" data-title="The app" data-note="A little slower. Save big downloads.">
+      <div class="chapter__head">
+        <div><p class="label"><i class="lv" style="background:var(--busy)"></i>07 · The app</p><h2 class="words">Twelve screens, from forecast to response</h2></div>
+        <p class="lede rv">White page, one verdict, one visual, a hairline list and one blue button. Color lives only in the dots and bars, so it always means something. Tap any phone to flip it.</p>
+      </div>
+      <div class="stack">
+        <div class="structure">
+          <div class="panel rv"><span class="k">Know</span><h3>See what's coming</h3><ol><li><b>1</b>Notice</li><li><b>2</b>Forecast</li><li><b>3</b>Sources</li><li><b>4</b>Pressure map</li></ol></div>
+          <div class="panel rv" style="--d:1"><span class="k">Understand</span><h3>See who decided</h3><ol><li><b>5</b>Who decided?</li><li><b>6</b>My connection</li></ol></div>
+          <div class="panel rv" style="--d:2"><span class="k">Respond</span><h3>Answer the rule</h3><ol><li><b>7</b>Make your case</li><li><b>8</b>Decision</li><li><b>9</b>Public record</li></ol></div>
+          <div class="panel rv" style="--d:3"><span class="k">Together</span><h3>Act with neighbors</h3><ol><li><b>10</b>Neighbors' readings</li><li><b>11</b>Quiet hour</li><li><b>12</b>Home light</li></ol></div>
+        </div>
+
+        <!-- Forecast -->
+        <div class="show">
+          <div class="panel stage tint-dusk rv">
+            <div class="flip" data-flip data-badge="Forecast"
+              data-frames="screens/forecast-block.webp|screens/forecast-home.webp|screens/forecast-farm.webp"
+              data-tabs="Janelle · Block|Marcus · Home|Amara · Farm"
+              data-alts="Forecast for Janelle's block: Slow, 4 PM to 9 PM|Forecast for Marcus's home|Forecast for Amara's farm"></div>
+          </div>
+          <div class="panel copy rv" style="--d:1">
+            <span class="k">Screen 2 · Forecast</span>
+            <h3>One verdict, then the why</h3>
+            <p>The word and the window come first. Everything else is a tap away, in the order people ask: why, what it means for me, and where this came from.</p>
+            <ul><li>Slow, 4 PM to 9 PM, before anything else</li><li>How sure it is, in words: Likely, 82% sure</li><li>Saved places switch between the three people</li></ul>
+          </div>
+        </div>
+
+        <!-- Map -->
+        <div class="show">
+          <div class="panel copy rv">
+            <span class="k">Screen 4 · Pressure map</span>
+            <h3>Four tabs, four plain questions</h3>
+            <p>Zones follow real shorelines instead of blocks, so it reads as a place, not a diagram. Short Z1 to Z6 chips keep the map clear; the legend does the explaining.</p>
+            <ul><li>Now: where is it slow?</li><li>Wiring: how is each area wired?</li><li>Who's first: who gets served first?</li><li>History: who was upgraded first? It says what it can't prove.</li></ul>
+          </div>
+          <div class="panel stage tint-blue rv" style="--d:1">
+            <p class="q" data-q>Where is it slow?</p>
+            <div class="flip" data-flip data-badge="Map"
+              data-frames="screens/map-now.webp|screens/map-wiring.webp|screens/map-priority.webp|screens/map-history.webp"
+              data-tabs="Now|Wiring|Who's first|History"
+              data-qs="Where is it slow?|How is each area wired?|Who gets served first?|Who was upgraded first?"
+              data-alts="Map, Now tab|Map, Wiring tab|Map, Who's first tab|Map, History tab"></div>
+          </div>
+        </div>
+
+        <!-- Sources + zone duo -->
+        <div class="show">
+          <div class="panel stage tint-ink rv">
+            <div class="duo">
+              <div class="flip" style="width:min(230px,40vw)" data-flip data-badge="Sources" data-notabs data-interval="4200"
+                data-frames="screens/sources.webp|screens/zone.webp"
+                data-alts="Sources: four sources on one timeline|Who decided? Two zones side by side"></div>
+            </div>
+          </div>
+          <div class="panel copy rv" style="--d:1">
+            <span class="k">Screens 3 and 5 · Sources, Who decided?</span>
+            <h3>Who made this weather?</h3>
+            <p>The city, your internet provider, neighbors and data-center power use, side by side on one timeline. When neighbors measure something different, the screen says so in their purple.</p>
+            <ul><li>Four sources, one timeline</li><li>Disagreement shown, not hidden</li><li>Two zones compared, with the rule behind each</li></ul>
+          </div>
+        </div>
+
+        <!-- Flow -->
+        <div class="panel flow" id="flow">
+          <figure data-drift="-30"><img src="screens/zone.webp" alt="Who decided? screen" width="511" height="1066" loading="lazy" data-zoom><figcaption><b>5 · Who decided?</b>See the rule behind your zone</figcaption></figure>
+          <figure data-drift="20"><img src="screens/appeal.webp" alt="Make your case screen" width="511" height="1066" loading="lazy" data-zoom><figcaption><b>7 · Make your case</b>What's wrong, the rule, evidence, the ask</figcaption></figure>
+          <figure data-drift="-10"><img src="screens/appeal-filled.webp" alt="Make your case, filled in" width="511" height="1066" loading="lazy" data-zoom><figcaption><b>7 · Filled in</b>Neighbors' readings attach as evidence</figcaption></figure>
+          <figure data-drift="34"><img src="screens/decision.webp" alt="Decision screen" width="511" height="1066" loading="lazy" data-zoom><figcaption><b>8 · Decision</b>Written reasons and 14 days to appeal</figcaption></figure>
+        </div>
+
+        <!-- My connection + record -->
+        <div class="grid2">
+          <div class="panel stage tint-sand rv">
+            <p class="q" data-q>What's using my share?</p>
+            <div class="flip" data-flip data-badge="My connection" data-interval="3600"
+              data-frames="screens/household.webp|screens/household-paused.webp"
+              data-tabs="Before|Paused"
+              data-qs="What's using my share?|Pause what can wait"
+              data-alts="My connection: devices using the share|My connection with devices paused"></div>
+            <p class="lbl muted" style="color:rgba(255,255,255,.85);text-align:center;margin:0;max-width:34ch;font-size:14px">Marcus sees what's using his share and pauses what can wait.</p>
+          </div>
+          <div class="panel stage tint-ink rv" style="--d:1">
+            <p class="q" data-q>Every rule, kept in one place</p>
+            <div class="flip" data-flip data-badge="Public record"
+              data-frames="screens/log.webp|screens/log-reviews.webp|screens/log-rules.webp|screens/log-accuracy.webp"
+              data-tabs="All|Reviews|Rules|Accuracy"
+              data-qs="Every rule, kept in one place|Reviews and their outcomes|The rules, in plain words|How often forecasts were right"
+              data-alts="Public record, all|Public record, reviews|Public record, rules|Public record, forecast accuracy"></div>
+            <p class="lbl muted" style="text-align:center;margin:0;max-width:34ch;font-size:14px">It shows where slowdowns land, not why.</p>
+          </div>
+        </div>
+
+        <!-- Together -->
+        <div class="grid2">
+          <div class="panel stage tint-blue rv">
+            <p class="q" data-q>Neighbors measure too</p>
+            <div class="flip" data-flip data-badge="Neighbors"
+              data-frames="screens/sensors.webp|screens/sensors-table.webp|screens/sensors-added.webp"
+              data-tabs="Chart|Table|Added"
+              data-qs="Neighbors measure too|Every reading, listed|Your reading, added"
+              data-alts="Neighbors' readings chart|Neighbors' readings table|A reading added"></div>
+            <p class="lbl" style="color:#0F1B2D;text-align:center;margin:0;max-width:34ch;font-size:14px">Speed only, never browsing, shared beside the official forecast.</p>
+          </div>
+          <div class="panel stage tint-dusk rv" style="--d:1">
+            <p class="q" data-q>An hour for the clinic</p>
+            <div class="flip" data-flip data-badge="Quiet hour"
+              data-frames="screens/quiet.webp|screens/quiet-preview.webp|screens/quiet-joined.webp"
+              data-tabs="Invite|Preview|Joined"
+              data-qs="An hour for the clinic|See what pauses|A promise, not a rule"
+              data-alts="Quiet hour invite|Quiet hour preview|Quiet hour joined"></div>
+            <p class="lbl" style="color:rgba(255,255,255,.88);text-align:center;margin:0;max-width:34ch;font-size:14px">Neighbors pause what can wait so the clinic and pantry stay fast.</p>
+          </div>
+        </div>
+
+        <!-- Home light -->
+        <div class="show">
+          <div class="panel stage tint-ink rv">
+            <i class="glow" id="lightGlow" style="background:var(--clear)"></i>
+            <p class="q" data-q>The forecast on a shelf</p>
+            <div class="flip" data-flip data-badge="Home light" data-glow="lightGlow"
+              data-frames="screens/light-today.webp|screens/light-clear.webp|screens/light-busy.webp|screens/light-slow.webp"
+              data-tabs="Today|Clear|Busy|Slow"
+              data-glows="#7C77BE|#9CC8EE|#F2C85B|#EC8F4D"
+              data-qs="The forecast on a shelf|Clear: use it as usual|Busy: save big downloads|Slow: calls stay steady"
+              data-alts="Home light, today|Home light, Clear|Home light, Busy|Home light, Slow"></div>
+          </div>
+          <div class="panel copy rv" style="--d:1">
+            <span class="k">Screen 12 · Home light</span>
+            <h3>A glance, not an app</h3>
+            <p>A light strip on the router shows the day at a glance, so the forecast reaches people who never open the app.</p>
+            <ul><li>Its colors follow the forecast levels</li><li>Purple blinks when neighbors see something different</li><li>The app sets it up and explains each color</li></ul>
+            <div class="duo" style="justify-content:flex-start;gap:16px;margin-top:6px">
+              <img src="screens/homescreen.webp" alt="Phone home screen with the Conditions app icon" width="511" height="1066" loading="lazy" style="width:120px;transform:rotate(-4deg)" data-zoom>
+              <img src="screens/lockscreen.webp" alt="Lock screen with Conditions notifications" width="511" height="1066" loading="lazy" style="width:120px;transform:rotate(3deg)" data-zoom>
+            </div>
+          </div>
+        </div>
+
+        <!-- Marquee -->
+        <div class="marquee" aria-label="Every screen" id="marquee"></div>
+      </div>
+    </section>
+
+    <!-- 08 BEFORE/AFTER -->
+    <section class="chapter" id="iteration" data-l="slow" data-title="Iteration" data-note="Streaming slows. Calls stay steady.">
+      <div class="chapter__head">
+        <div><p class="label"><i class="lv" style="background:var(--slow)"></i>08 · Iteration</p><h2 class="words">From busy to calm</h2></div>
+        <div class="stack" style="gap:14px">
+          <p class="lede rv">The first pass had cards inside cards, caps labels and three kinds of emphasis per screen. The redesign keeps every feature and removes the noise, taking cues from Robinhood, Ramp and Stripe.</p>
+          <div class="ba-tools rv"><button class="btn" id="flipAll" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3L20 9M20 4v5h-5M20 12a8 8 0 0 1-14 5.3L4 15M4 20v-5h5"/></svg>Flip all</button><span class="note">Or tap a phone.</span></div>
+        </div>
+      </div>
+      <div class="ba" id="ba">
+        <div class="panel stage rv"><div class="flip" data-flip data-pair data-frames="screens/old-forecast.webp|screens/forecast-block.webp" data-tabs="Before|After" data-alts="Forecast, before|Forecast, after"></div><p class="lbl">Forecast: one word, one window, one chart.</p></div>
+        <div class="panel stage rv" style="--d:1"><div class="flip" data-flip data-pair data-frames="screens/old-map.webp|screens/map-priority.webp" data-tabs="Before|After" data-alts="Map, before|Map, after"></div><p class="lbl">Map: full-bleed, controls float, the card shrinks to a sheet.</p></div>
+        <div class="panel stage rv" style="--d:2"><div class="flip" data-flip data-pair data-frames="screens/old-sources.webp|screens/sources.webp" data-tabs="Before|After" data-alts="Sources, before|Sources, after"></div><p class="lbl">Sources: a timeline and a list, no boxes.</p></div>
+        <div class="panel stage rv"><div class="flip" data-flip data-pair data-frames="screens/old-household.webp|screens/household.webp" data-tabs="Before|After" data-alts="My connection, before|My connection, after"></div><p class="lbl">My connection: one number, then the devices.</p></div>
+        <div class="panel stage rv" style="--d:1"><div class="flip" data-flip data-pair data-frames="screens/old-zone.webp|screens/zone.webp" data-tabs="Before|After" data-alts="Who decided, before|Who decided, after"></div><p class="lbl">Who decided?: two columns become two rows.</p></div>
+        <div class="panel stage rv" style="--d:2"><div class="flip" data-flip data-pair data-frames="screens/old-appeal.webp|screens/appeal.webp" data-tabs="Before|After" data-alts="Make your case, before|Make your case, after"></div><p class="lbl">Make your case: four plain steps and one button.</p></div>
+      </div>
+      <div class="panel rv" style="margin-top:16px;overflow-x:auto">
+        <span class="k">What changed after review</span>
+        <table class="changes" style="margin-top:10px"><tbody>
+          <tr><td>Busy, Slow, Very slow replace Strained, Constrained, Severe</td><td>Two near-synonyms were hard to tell apart</td></tr>
+          <tr><td>Calmer, plain-language copy on every screen</td><td>Written for people new to broadband terms</td></tr>
+          <tr><td>Zones drawn over a real map, following shorelines</td><td>Blocks read as a diagram, not a place</td></tr>
+          <tr><td>Short Z1 to Z6 chips, colors explained by a legend</td><td>Long labels crowded the map</td></tr>
+          <tr><td>One hero, hairline lists, one blue button per screen</td><td>The first pass felt busy; now color only carries meaning</td></tr>
+        </tbody></table>
+      </div>
+    </section>
+
+    <!-- 09 CAMPAIGN -->
+    <section class="chapter" id="campaign" data-l="busy" data-title="Campaign" data-note="A little slower. Save big downloads.">
+      <div class="chapter__head">
+        <div><p class="label"><i class="lv" style="background:var(--busy)"></i>09 · Campaign</p><h2 class="words">Check your local internet forecast</h2></div>
+        <p class="lede rv">The launch borrows the places weather already lives: the evening sky, the side of a building, a phone checked on the way out. Turn the sound on for the spots.</p>
+      </div>
+      <div class="stack">
+        <div class="ads">
+          <div class="panel ad rv">
+            <video muted loop playsinline preload="metadata" poster="video/ad-radar-poster.jpg" data-auto><source src="video/ad-radar.mp4" type="video/mp4"></video>
+            <button class="sound" type="button" aria-pressed="false" aria-label="Sound for the radar spot"><svg class="off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5zM22 9l-6 6M16 9l6 6"/></svg><svg class="on" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5zM15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg></button>
+          </div>
+          <div class="panel ad rv" style="--d:1">
+            <video muted loop playsinline preload="metadata" poster="video/ad-sunset-poster.jpg" data-auto><source src="video/ad-sunset.mp4" type="video/mp4"></video>
+            <button class="sound" type="button" aria-pressed="false" aria-label="Sound for the sunset spot"><svg class="off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5zM22 9l-6 6M16 9l6 6"/></svg><svg class="on" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5zM15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg></button>
+          </div>
+        </div>
+        <div class="mosaic">
+          <figure class="tile t-wide rv tilt"><img src="img/billboard-2.webp" alt="Billboard: Conditions, the forecast for your internet, over a sunset with power lines" loading="lazy" data-zoom><figcaption class="chip">Billboard</figcaption></figure>
+          <figure class="tile t-tall rv tilt" style="--d:1"><img src="img/billboard.webp" alt="Blue gradient billboard against the sky" loading="lazy" data-zoom><figcaption class="chip">Billboard</figcaption></figure>
+          <figure class="tile t-third rv tilt"><img src="img/poster.webp" alt="Isobar posters on a street corner" loading="lazy" data-zoom><figcaption class="chip">Wild posting</figcaption></figure>
+          <figure class="tile t-wide rv tilt" style="--d:1"><img src="img/poster-2.webp" alt="Building mural: The internet is unpredictable. Your forecast shouldn't be." loading="lazy" data-zoom><figcaption class="chip">Mural</figcaption></figure>
+          <figure class="tile t-half rv tilt" style="aspect-ratio:1/1"><img src="img/phone-mock.webp" alt="Hands holding a phone showing the pressure map" loading="lazy" data-zoom><figcaption class="chip">In hand · Map</figcaption></figure>
+          <figure class="tile t-half rv tilt" style="aspect-ratio:1/1;--d:1"><img src="img/phone-mock-2.webp" alt="A gloved hand at dusk holding a phone with neighbors' readings" loading="lazy" data-zoom style="object-position:50% 40%"><figcaption class="chip">In hand · Neighbors</figcaption></figure>
+          <figure class="tile t-wide rv tilt" style="aspect-ratio:16/9"><video autoplay muted loop playsinline preload="metadata" poster="video/haze-city-poster.jpg" aria-hidden="true" style="width:100%;height:100%;object-fit:cover"><source src="video/haze-city.mp4" type="video/mp4"></video><figcaption class="chip">Atlanta, any evening</figcaption></figure>
+          <figure class="tile t-tall rv tilt" style="--d:1"><img src="img/phone-mock-3.webp" alt="A phone at night showing the home light" loading="lazy" data-zoom><figcaption class="chip">In hand · Home light</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 NEXT -->
+    <section class="chapter" id="next" data-l="clear" data-title="What's next" data-note="Normal speed. Clear skies to the end.">
+      <div class="closer rv">
+        <svg class="iso" id="closeIso" viewBox="0 0 100 100" aria-hidden="true"><g></g></svg>
+        <p class="label" style="color:rgba(255,255,255,.8)">10 · What's next</p>
+        <h2 class="words">From mockups to a working prototype</h2>
+        <div class="next">
+          <div><b>01</b><h3>Build it in Figma</h3><p>Rebuild the 12 screens and 17 variations as components.</p></div>
+          <div><b>02</b><h3>Make it Atlanta</h3><p>Swap the New York placeholder map and redraw the zones to fit.</p></div>
+          <div><b>03</b><h3>Test it with people</h3><p>Walk three people like Amara, Marcus and Janelle through one slow evening.</p></div>
+        </div>
+        <p class="q-open">Open question: who runs Conditions, and how does it stay independent from the Authority it explains?</p>
+      </div>
+
+      <details class="panel sources rv" style="margin-top:16px">
+        <summary>Sources <i aria-hidden="true">+</i></summary>
+        <div class="src-cols">
+          <div>
+            <h4>Journalism</h4>
+            <ul>
+              <li><a href="https://arstechnica.com/tech-policy/2018/08/verizon-throttled-fire-departments-unlimited-data-during-calif-wildfire/" target="_blank" rel="noopener">Ars Technica: Verizon throttled firefighters (2018)</a></li>
+              <li><a href="https://www.cbsnews.com/news/verizon-throttled-firefighters-unlimited-data-during-california-fires-lawsuit/" target="_blank" rel="noopener">CBS News: the firefighter throttling lawsuit</a></li>
+              <li><a href="https://www.cbsnews.com/atlanta/news/georgia-regulators-approve-huge-electric-generation-increase-for-data-centers/" target="_blank" rel="noopener">CBS Atlanta: generation increase for data centers</a></li>
+              <li><a href="https://apnews.com/article/georgia-power-electricity-data-centers-psc-bills-0b377d6a4a57c9353c0eb577b8951af3" target="_blank" rel="noopener">AP News: Georgia Power, data centers and bills</a></li>
+              <li><a href="https://georgiarecorder.com/2025/02/10/state-senator-pushes-bill-to-protect-georgia-power-customers-from-rate-hikes-fueled-by-data-centers/" target="_blank" rel="noopener">Georgia Recorder: rate-hike bill (2025)</a></li>
+            </ul>
+            <h4>Technical</h4>
+            <ul><li><a href="https://developers.cloudflare.com/radar/" target="_blank" rel="noopener">Cloudflare Radar documentation</a></li></ul>
+          </div>
+          <div>
+            <h4>Government and regulators</h4>
+            <ul>
+              <li><a href="https://www.ferc.gov/news-events/news/ferc-launches-aggressive-targeted-action-speed-large-load-integration" target="_blank" rel="noopener">FERC: speeding large-load integration</a></li>
+              <li><a href="https://www.ferc.gov/rm26-4" target="_blank" rel="noopener">FERC: docket RM26-4</a></li>
+              <li><a href="https://www.energy.gov/ceser/2026-doe-202c-orders" target="_blank" rel="noopener">DOE: 2026 emergency 202(c) orders</a></li>
+              <li><a href="https://psc.ga.gov/facts-advanced-search/docket/?docketId=42310" target="_blank" rel="noopener">Georgia PSC: docket 42310</a></li>
+            </ul>
+            <h4>Policy and grid operators</h4>
+            <ul>
+              <li><a href="https://www.digitalinclusion.org/blog/atts-digital-redlining-of-cleveland/" target="_blank" rel="noopener">NDIA: AT&amp;T's digital redlining of Cleveland</a></li>
+              <li><a href="https://insidelines.pjm.com/pjm-adds-emergency-procedures-to-maintain-reliability/" target="_blank" rel="noopener">PJM: emergency reliability procedures</a></li>
+              <li><a href="https://www.georgiapolicy.org/news/why-are-so-many-data-centers-popping-up-in-georgia/" target="_blank" rel="noopener">Georgia Public Policy Foundation: data centers</a></li>
+            </ul>
+          </div>
+        </div>
+      </details>
+      <footer><span>Conditions · Isabella Tedesco · 2026</span><a href="#top">Back to top ↑</a></footer>
+    </section>
+  </main>
+</div>
+
+<div class="mini hide" aria-hidden="true" style="transition:opacity .4s,transform .5s"><span class="bars" id="miniBars"></span><b id="miniWord">Clear</b><span class="muted" id="miniStep">01 / 10</span></div>
+
+<dialog class="lb" id="lb"><button type="button" aria-label="Close">×</button><img alt=""></dialog>
+
+<script src="script.js"></script>
+
+</body>
+</html>
