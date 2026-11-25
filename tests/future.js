@@ -1,0 +1,50 @@
+// node tests/future.js — 0.11: the two speculative steps (autopilot, the human web) are built from what the visitor did
+const { chromium } = require('playwright'); const path = require('path');
+const URL = 'file://' + path.resolve(__dirname, '../index.html') + '#quick';
+let fails = 0; const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) fails++; };
+(async () => {
+  const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
+  const errs = []; p.on('pageerror', (e) => errs.push(e.message));
+  await p.route(/fonts\.g/, (r) => r.abort());
+  await p.goto(URL); await p.evaluate(() => localStorage.clear()); await p.reload();
+  await p.evaluate(() => {
+    Journey.begin(); const s = Journey.state();
+    ['1993', '1999', '2006', '2010', '2024'].forEach((a) => { s.passed[a] = true; });
+    s.kept['2024'] = ['T-1996-guest', 'T-2004-blog', 'T-2010-forum']; s.lost['T-2016-feed'] = { fate: 'gone', scene: '2024', reason: '' };
+    s.polish = { shown: 2, accepted: 0, refused: 2 }; s.name = 'isa';
+    Journey.answer('1996', 'we faxed my report card to my grandmother');
+    setEra('2016');
+  });
+  ok(await p.evaluate(() => document.getElementById('fuBtn').hidden && !Future.isPQ()), 'nothing of the future shows before 2030');
+  await p.evaluate(() => setEra('2030')); await p.evaluate(() => Future.open());
+  let t = await p.textContent('#fuMain');
+  ok(/welcome back, isa/.test(t) && /your day, handled/.test(t), 'autopilot greets them and runs their day');
+  ok(/report card/.test(t) && /#throwback/.test(t), 'it rewrites their own memory in a corporate voice');
+  ok(/a guestbook, a blog with comments, a forum thread/.test(t), 'their carried things become "top picks"');
+  ok(/the ranked feed \(perfect copy\)/.test(t) && /made by nobody/.test(t), 'what they lost is regenerated as a copy nobody made');
+  ok(/kept your own words/.test(t), 'the twin learned from what they did in 2024');
+  ok(await p.evaluate(() => document.querySelectorAll('.ap-undo[disabled]').length >= 5), 'nothing it did can be undone');
+  // step 2
+  await p.click('[data-a=pq]');
+  ok(await p.evaluate(() => Future.isPQ() && document.getElementById('fuStage').classList.contains('active')), 'taking the wheel back moves to the human web, its own place on the era bar');
+  t = await p.textContent('#fu-back');
+  ok(/the ranked feed/.test(t) && /back whole/.test(t) && /a guestbook/.test(t), 'everything they lost comes back, and what they carried is theirs');
+  ok(/your answer/.test(t), 'their own answer is listed as something they made');
+  await p.click('#fu-back [data-a=sign]'); ok(/signed by isa/.test(await p.textContent('#fu-back')), 'they can sign what they made');
+  ok(/that’s everything for today/.test(await p.textContent('#fu-time')), 'the feed ends');
+  ok(await p.evaluate(() => Future.dial() === 1), 'the helper starts by asking, because they kept their own words');
+  await p.fill('#fuLine', 'i wanted to say thank you');
+  ok(/mote asks/.test(await p.textContent('#fuDraft')), 'at "asks me first" it asks and writes nothing');
+  await p.evaluate(() => { const d = document.getElementById('fuDial'); d.value = 2; d.dispatchEvent(new Event('input', { bubbles: true })); });
+  ok(await p.inputValue('#fuLine') === 'i wanted to say thank you' && await p.$('#fuDraft .fu-its-w') !== null && /% yours/.test(await p.textContent('#fuDraft')), 'at "drafts" its words are marked and counted; theirs are untouched');
+  await p.click('[data-a=copy]'); ok(/can.t be copied/.test(await p.textContent('#fuQ')) && await p.evaluate(() => !Future.state().moteRead), 'copying the note fails and leaves it unread');
+  await p.click('[data-a=read]'); ok(/a guestbook/.test(await p.textContent('#fuQ')) && await p.evaluate(() => Future.state().moteRead), 'mote’s note names what they carried, and can be read once');
+  await p.click('[data-a=home]'); ok(await p.evaluate(() => document.getElementById('win-things').classList.contains('open')), 'the ending opens their things');
+  await p.evaluate(() => setEra('2010')); ok(await p.evaluate(() => !document.body.classList.contains('pq') && document.getElementById('fuBtn').hidden), 'leaving 2030 leaves the future');
+  await p.evaluate(() => { Journey.reset(); setEra('2030'); Future.stage('pq'); Future.stage('ai'); Future.open(); });
+  ok(/someone else/.test(await p.textContent('#fuMain')), 'a visitor with no history still gets a working future');
+  await p.setViewportSize({ width: 390, height: 844 }); await p.evaluate(() => Future.open());
+  ok(await p.evaluate(() => { const m = document.getElementById('fuMain'); m.scrollLeft = 999; const o = m.scrollLeft; m.scrollLeft = 0; return o === 0; }), 'no sideways scrolling on a phone');
+  ok(errs.length === 0, 'no page errors ' + JSON.stringify(errs));
+  await b.close(); console.log(fails ? fails + ' FAILED' : 'ALL PASSED'); process.exit(fails ? 1 : 0);
+})();

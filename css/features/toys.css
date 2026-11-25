@@ -1,0 +1,223 @@
+/* toys.css — the pet, the screensavers, the sound board, the chain letter, bug garden (see js/features/toys.js).
+   Everything is prefixed ty- or scoped under its window id, so the era skins keep the window frames and nothing else. */
+
+/* ============ 1. the pet: a lane along the bottom edge, between the bottom-left buttons and the hit counter ============ */
+#tyPet { position: fixed; z-index: 10; bottom: 36px; left: 305px; width: 56px; transition: left 2.4s linear; }
+#tyPet .ty-pet-b { display: block; width: 56px; height: 56px; padding: 0; margin: 0; border: 0; background: none; cursor: pointer; filter: drop-shadow(0 2px 0 rgba(0,0,0,.28)); animation: tyBob 1.1s steps(2) infinite; }
+#tyPet .ty-pet-b svg { display: block; width: 100%; height: 100%; }
+#tyPet .ty-pet-b:focus-visible { outline: 2px dashed #fff; outline-offset: 2px; box-shadow: 0 0 0 2px #2b2140; border-radius: 6px; }
+#tyPet.ty-left .ty-pet-b { transform: scaleX(-1); }
+#tyPet.ty-walk .ty-pet-b { animation: tyWalk .3s steps(2) infinite; }
+#tyPet.ty-hop { animation: tyHop .5s ease-out; }
+#tyPet.ty-st-egg .ty-pet-b { animation: tyWobble 2.6s ease-in-out infinite; transform-origin: 50% 90%; }
+#tyPet.ty-st-baby { width: 46px; } #tyPet.ty-st-baby .ty-pet-b { width: 46px; height: 46px; }
+#tyPet.ty-st-grown, #tyPet.ty-st-elder { width: 64px; } #tyPet.ty-st-grown .ty-pet-b, #tyPet.ty-st-elder .ty-pet-b { width: 64px; height: 64px; }
+#tyPet.ty-st-elder .ty-pet-b { animation-duration: 2.4s; }
+#tyPet .ty-eye { animation: tyBlink 4.6s steps(1) infinite; }
+@keyframes tyBob { 50% { translate: 0 -2px; } }
+@keyframes tyWalk { 50% { translate: 0 -3px; rotate: 4deg; } }
+@keyframes tyHop { 35% { transform: translateY(-16px); } 70% { transform: translateY(0); } 85% { transform: translateY(-5px); } }
+@keyframes tyWobble { 0%, 78%, 100% { rotate: 0deg; } 82% { rotate: -9deg; } 88% { rotate: 8deg; } 94% { rotate: -4deg; } }
+@keyframes tyBlink { 0%, 95% { opacity: 1; } 96%, 100% { opacity: 0; } }
+#tyPet .ty-pet-fx { position: absolute; left: 50%; bottom: 100%; transform: translate(-50%, 6px); width: max-content; max-width: 150px; text-align: center; padding: 2px 7px; background: #fff; color: #2b2140; border: 2px solid #2b2140; border-radius: 9px 9px 9px 2px; font: 700 12px/1.3 'Courier New', monospace; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; }
+#tyPet .ty-pet-fx.on { opacity: 1; transform: translate(-50%, -2px); }
+#tyPetMenu { position: fixed; z-index: 62; width: 214px; padding: 8px 9px 9px; background: #fffbe6; color: #2b2140; border: 2px solid #2b2140; box-shadow: 4px 4px 0 rgba(43,33,64,.45); font: 12px/1.35 'Courier New', monospace; }
+#tyPetMenu p { margin: 0 0 5px; } #tyPetMenu .ty-pm-name b { font-size: 14px; } #tyPetMenu .ty-pm-name i { color: #7a6c96; }
+#tyPetMenu .ty-pm-say { min-height: 2.7em; }
+#tyPetMenu .ty-pm-btns { display: flex; gap: 4px; }
+#tyPetMenu button { flex: 1; font: 700 12px/1 'Courier New', monospace; padding: 6px 2px; background: #ffd84a; color: #2b2140; border: 2px solid #2b2140; border-radius: 0; box-shadow: 2px 2px 0 #2b2140; cursor: pointer; }
+#tyPetMenu button:active { translate: 2px 2px; box-shadow: none; }
+#tyPetMenu button:focus-visible, #tyPetMenu input:focus-visible { outline: 2px dashed #d6247a; outline-offset: 2px; }
+#tyPetMenu form { display: grid; grid-template-columns: 1fr auto; gap: 4px; margin-top: 8px; align-items: center; }
+#tyPetMenu form[hidden] { display: none; }
+#tyPetMenu form label, #tyPetMenu form small { grid-column: 1 / -1; } #tyPetMenu form small { color: #7a6c96; }
+#tyPetMenu input { min-width: 0; font: 13px 'Courier New', monospace; padding: 4px; border: 2px solid #2b2140; background: #fff; color: #000; }
+/* each era dresses the menu a little */
+body.era-2004 #tyPetMenu, body.era-2006 #tyPetMenu, body.era-2008 #tyPetMenu, body.era-2010 #tyPetMenu { font-family: 'Trebuchet MS', Verdana, sans-serif; border-radius: 10px; border-width: 1px; background: linear-gradient(#fff, #eaf4ff); box-shadow: 0 4px 14px rgba(0,0,0,.3); }
+body.era-2004 #tyPetMenu button, body.era-2006 #tyPetMenu button, body.era-2008 #tyPetMenu button, body.era-2010 #tyPetMenu button { font-family: inherit; border-radius: 12px; border: 1px solid #5d93c9; background: linear-gradient(#cfe7ff, #8fc1f1); box-shadow: inset 0 1px 0 #fff; }
+body.era-2030 #tyPetMenu { font-family: system-ui, sans-serif; border: 1px solid #7fb069; border-radius: 12px; background: #f4fff0; color: #1d3b1a; box-shadow: 0 6px 20px rgba(0,0,0,.15); }
+body.era-2030 #tyPetMenu button { font: 600 12px system-ui, sans-serif; border: 0; border-radius: 8px; background: #2d6a4f; color: #fff; box-shadow: none; }
+
+/* 2014–2024: a notification where the pet was. Accurate, not playful. */
+.ty-note { position: fixed; z-index: 9; left: 236px; bottom: 46px; font: 13px/1.3 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+.ty-note button { font: inherit; cursor: pointer; }
+.ty-note button:focus-visible { outline: 2px solid #4c9ffe; outline-offset: 2px; }
+.ty-note-2014 { display: flex; align-items: flex-start; width: 204px; position: fixed; background: rgba(250,250,250,.97); color: #111; border-radius: 12px; box-shadow: 0 8px 28px rgba(0,0,0,.35); animation: tyPush .45s cubic-bezier(.2,.9,.3,1.2); }
+.ty-push { display: flex; gap: 9px; align-items: flex-start; flex: 1; text-align: left; padding: 10px 8px 10px 10px; background: none; border: 0; color: inherit; min-width: 0; }
+.ty-push small { display: block; color: #777; font-size: 10px; text-transform: uppercase; letter-spacing: .04em; } .ty-push b { display: block; font-size: 14px; } .ty-push span span { color: #444; }
+.ty-note .ty-x { position: absolute; top: 0; right: 0; background: none; border: 0; color: #888; font-size: 17px; padding: 5px 8px; line-height: 1; }
+.ty-appico { position: relative; flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, #ff7a59, #ff3d77); font-size: 20px; line-height: 1; }
+.ty-appico em { position: absolute; top: -6px; right: -7px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 9px; background: #ff3b30; color: #fff; font: 700 11px/18px system-ui, sans-serif; font-style: normal; text-align: center; box-shadow: 0 0 0 2px #fff; }
+.ty-badge { padding: 0; border: 0; background: none; } .ty-badge .ty-appico { width: 46px; height: 46px; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,.35); }
+@keyframes tyPush { from { transform: translateY(30px); opacity: 0; } }
+/* 2030: offered back */
+.ty-note-2030 { left: 190px; width: 168px; box-sizing: border-box; padding: 10px 12px; background: #f4fff0; color: #1d3b1a; border: 1px solid #7fb069; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,.12); }
+.ty-note-2030 p { margin: 0 0 6px; } .ty-note-2030 .ty-sub { font-size: 12px; opacity: .8; } .ty-note-2030 div { display: grid; gap: 5px; }
+.ty-note-2030 button { padding: 6px 10px; border: 1px solid #2d6a4f; border-radius: 8px; background: #2d6a4f; color: #fff; } .ty-note-2030 button + button, .ty-note-2030 .ty-rest { background: none; color: #2d6a4f; }
+.ty-note-2030:has(.ty-rest) { width: auto; padding: 0; border: 0; background: none; box-shadow: none; } .ty-note-2030 .ty-rest { background: #f4fff0; }
+/* the streak-lost screen */
+html body #win-pet .app-body { background: #fff; }
+.ty-app { padding: 20px 18px 16px; text-align: center; color: #1c1c1e; font: 14px/1.4 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+.ty-app h2 { margin: 0 0 4px; font: 800 24px/1.1 system-ui, sans-serif; color: #1c1c1e; text-transform: none; letter-spacing: 0; } .ty-app p { margin: 0 0 12px; } .ty-app-ico { font-size: 44px; line-height: 1; margin: 0 0 6px !important; }
+html body #win-pet .ty-app button { font: 600 14px system-ui, sans-serif; text-transform: none; letter-spacing: 0; cursor: pointer; box-shadow: none; }
+html body #win-pet .ty-cta { display: block; width: 100%; padding: 12px; border: 0; border-radius: 12px; background: #ff3d77; color: #fff; }
+.ty-packs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 12px 0; }
+html body #win-pet .ty-packs button { position: relative; padding: 14px 2px 8px; border: 1px solid #ddd; border-radius: 10px; background: #fafafa; color: #1c1c1e; font-weight: 400; font-size: 12px; }
+.ty-packs b { display: block; font-size: 17px; } .ty-packs span { display: block; margin-top: 4px; font-weight: 700; color: #0a7d32; }
+html body #win-pet .ty-packs .best { border: 2px solid #ff3d77; background: #fff3f7; } .ty-packs em { position: absolute; top: -8px; left: 50%; translate: -50% 0; padding: 1px 6px; border-radius: 8px; background: #ff3d77; color: #fff; font: 700 9px/1.5 system-ui, sans-serif; white-space: nowrap; }
+html body #win-pet .ty-no { border: 0; background: none; color: #8e8e93; font-weight: 400; font-size: 12px; text-decoration: underline; }
+.ty-sim { margin: 10px 0 0 !important; font-size: 12px; color: #555; text-align: left; } .ty-sim:empty { display: none; }
+
+/* ============ 2. screensavers ============ */
+.ty-sv { position: fixed; inset: 0; z-index: 99990; background: #000; color: #fff; overflow: hidden; cursor: none; }
+.ty-sv canvas { display: block; width: 100%; height: 100%; }
+.ty-sv-hint { position: absolute; left: 0; right: 0; bottom: 10px; margin: 0; text-align: center; font: 11px 'Courier New', monospace; color: rgba(255,255,255,.32); }
+.ty-sv-photos { background: radial-gradient(circle at 30% 20%, #3b78c9, #0b2a5c 70%); }
+.ty-bub { position: absolute; left: var(--x); bottom: -200px; width: var(--s); height: var(--s); border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: calc(var(--s) * .45); background: hsl(var(--h, 200) 70% 70%) center / cover; box-shadow: inset 0 -10px 24px rgba(0,0,0,.25), inset 0 10px 18px rgba(255,255,255,.65), 0 0 0 3px rgba(255,255,255,.55), 0 10px 30px rgba(0,0,0,.35); animation: tyFloat 22s linear infinite; animation-delay: var(--d); }
+.ty-bub::after { content: ''; position: absolute; top: 10%; left: 18%; width: 34%; height: 20%; border-radius: 50%; background: rgba(255,255,255,.6); filter: blur(2px); rotate: -24deg; }
+@keyframes tyFloat { from { transform: translate(0, 0) rotate(-6deg); } 50% { transform: translate(40px, -62vh) rotate(6deg); } to { transform: translate(-10px, -130vh) rotate(-6deg); } }
+.ty-sv-cap { position: absolute; left: 24px; top: 20px; margin: 0; font: italic 20px Georgia, serif; text-shadow: 0 1px 3px rgba(0,0,0,.6); }
+.ty-sv-clock { background: linear-gradient(120deg, #1c2a4a, #5a3d6b, #c06c5a, #1c2a4a); background-size: 400% 400%; animation: tySky 40s ease-in-out infinite; display: grid; place-items: center; }
+@keyframes tySky { 50% { background-position: 100% 50%; } }
+.ty-clock { text-align: center; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-shadow: 0 2px 30px rgba(0,0,0,.35); }
+.ty-clock b { display: block; font-weight: 200; font-size: clamp(64px, 16vw, 190px); line-height: 1; letter-spacing: -.03em; } .ty-clock span { font-weight: 300; font-size: clamp(15px, 2.4vw, 26px); opacity: .85; }
+/* 2014–2024: no screensaver; a question */
+.ty-sv-still { background: rgba(0,0,0,.72); cursor: default; display: grid; place-items: center; padding: 16px; }
+.ty-still { width: min(380px, 100%); box-sizing: border-box; padding: 26px 24px 22px; background: #fff; color: #1c1c1e; border-radius: 10px; box-shadow: 0 20px 60px rgba(0,0,0,.5); text-align: center; font: 15px/1.45 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+.ty-still h2 { margin: 0 0 8px; font: 700 21px/1.2 system-ui, sans-serif; color: #1c1c1e; text-transform: none; letter-spacing: 0; } .ty-still p { margin: 0 0 18px; color: #48484a; }
+.ty-still button { font: 600 15px system-ui, sans-serif; padding: 11px 22px; border: 0; border-radius: 6px; background: #0a66ff; color: #fff; cursor: pointer; }
+.ty-still button:focus-visible { outline: 3px solid #9cc4ff; outline-offset: 2px; }
+body.era-2016 .ty-still, body.era-2024 .ty-still { background: #181818; color: #fff; } body.era-2016 .ty-still h2, body.era-2024 .ty-still h2 { color: #fff; } body.era-2016 .ty-still p, body.era-2024 .ty-still p { color: #b3b3b3; }
+body.era-2016 .ty-still button, body.era-2024 .ty-still button { background: #fff; color: #111; }
+/* 2030: it only dims */
+.ty-sv-dim { background: rgba(18,28,22,.62); display: grid; place-items: center; cursor: default; animation: tyDim 2.5s ease-out; }
+.ty-dim { margin: 0; padding: 0 20px; text-align: center; font: 300 clamp(20px, 3.4vw, 34px)/1.3 Georgia, 'Times New Roman', serif; color: #eaf5e4; }
+@keyframes tyDim { from { opacity: 0; } }
+
+/* ============ 3. the sound board ============ */
+html body #win-sounds .app-body { background: #c0c0c0; }
+.ty-sb { padding: 10px 12px 12px; color: #000; font: 13px/1.35 Arial, Helvetica, sans-serif; }
+.ty-sb h2 { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font: 700 15px/1.2 'Courier New', monospace; color: inherit; text-transform: none; letter-spacing: 0; }
+.ty-sb ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; } .ty-sb li p { margin: 3px 0 0; font-size: 12px; }
+html body #win-sounds .ty-sb button { font: 700 13px/1.2 Arial, sans-serif; text-transform: none; letter-spacing: 0; cursor: pointer; text-align: left; color: #000; }
+html body #win-sounds .ty-sb button:focus-visible { outline: 2px dashed currentColor; outline-offset: 2px; }
+.ty-sb-st { min-height: 1.3em; margin: 10px 0 4px; font-weight: 700; } .ty-sb-note { margin: 0; font-size: 11px; opacity: .85; }
+.ty-eq { display: inline-flex; gap: 2px; align-items: flex-end; height: 14px; margin-left: auto; } .ty-eq b { width: 4px; height: 3px; background: currentColor; }
+.ty-sb:has(.playing) .ty-eq b { animation: tyEq .5s steps(4) infinite alternate; } .ty-eq b:nth-child(2) { animation-delay: -.2s !important; } .ty-eq b:nth-child(3) { animation-delay: -.35s !important; } .ty-eq b:nth-child(4) { animation-delay: -.1s !important; }
+@keyframes tyEq { to { height: 14px; } }
+/* 1993–1999: grey box, bevels, green readout */
+.ty-sb-old h2 { background: #000; color: #3f3; padding: 6px 8px; border: 2px inset #eee; }
+html body #win-sounds .ty-sb-old li button { width: 100%; padding: 8px 10px; background: #c0c0c0; border: 3px outset #f2f2f2; border-radius: 0; box-shadow: none; font-family: 'Courier New', monospace; }
+html body #win-sounds .ty-sb-old li button.playing, html body #win-sounds .ty-sb-old li button:active { border-style: inset; background: #b0b0b0; }
+.ty-sb-old li p { font-family: 'Times New Roman', serif; font-style: italic; font-size: 13px; }
+html body #win-sounds .ty-sb-old .ty-sb-note button, html body #win-sounds .ty-sb-mid .ty-sb-note button { font-size: 11px; padding: 1px 6px; border: 2px outset #f2f2f2; background: #c0c0c0; border-radius: 0; }
+/* 2004–2010: glossy */
+html body.era-2004 #win-sounds .app-body, html body.era-2006 #win-sounds .app-body, html body.era-2008 #win-sounds .app-body, html body.era-2010 #win-sounds .app-body { background: linear-gradient(#dff0ff, #a9d0f5); }
+.ty-sb-mid { font-family: 'Trebuchet MS', Verdana, sans-serif; color: #0b2a4a; } .ty-sb-mid h2 { font: 700 18px 'Trebuchet MS', sans-serif; color: #0b3d7a; text-shadow: 0 1px 0 #fff; }
+html body #win-sounds .ty-sb-mid li button { width: 100%; padding: 8px 14px; border: 1px solid #3f7fc0; border-radius: 16px; background: linear-gradient(#fff 0, #cfe6ff 48%, #9ccaf5 52%, #c5e2ff 100%); box-shadow: 0 1px 3px rgba(0,0,0,.25); color: #0b2a4a; font-family: inherit; }
+html body #win-sounds .ty-sb-mid li button.playing { background: linear-gradient(#fff6c9, #ffd45c); border-color: #c48a00; }
+/* 2014–2024: a settings list */
+html body.era-2014 #win-sounds .app-body, html body.era-2016 #win-sounds .app-body, html body.era-2024 #win-sounds .app-body { background: #f2f2f7; }
+.ty-sb.ty-sb-now { font: 14px/1.4 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; color: #1c1c1e; }
+.ty-sb.ty-sb-now h2 { font: 700 22px system-ui, sans-serif; } .ty-sb.ty-sb-now ul { gap: 0; background: #fff; border-radius: 10px; overflow: hidden; } .ty-sb.ty-sb-now li { padding: 10px 12px; border-top: 1px solid #e5e5ea; } .ty-sb.ty-sb-now li:first-child { border-top: 0; }
+html body #win-sounds .ty-sb.ty-sb-now li button { width: 100%; padding: 0; border: 0; background: none; box-shadow: none; border-radius: 0; font: 400 16px system-ui, sans-serif; color: #1c1c1e; }
+html body #win-sounds .ty-sb.ty-sb-now li button.playing { color: #0a66ff; } .ty-sb.ty-sb-now li p { color: #8e8e93; }
+html body #win-sounds .ty-sb.ty-sb-now .ty-sb-note button, html body #win-sounds .ty-sb-calm .ty-sb-note button { border: 0; background: none; box-shadow: none; padding: 0; color: #0a66ff; font: inherit; text-decoration: underline; }
+/* 2030: almost nothing */
+html body.era-2030 #win-sounds .app-body { background: #f4fff0; }
+.ty-sb-calm { font-family: system-ui, sans-serif; color: #1d3b1a; padding: 18px; } .ty-sb-calm h2 { font: 300 22px Georgia, serif; }
+html body #win-sounds .ty-sb-calm li button { padding: 9px 16px; border: 1px solid #7fb069; border-radius: 999px; background: #fff; color: #1d3b1a; box-shadow: none; font: 500 14px system-ui, sans-serif; }
+html body #win-sounds .ty-sb-calm li button.playing { background: #2d6a4f; color: #fff; } html body #win-sounds .ty-sb-calm .ty-sb-note button { color: #2d6a4f; }
+
+/* ============ 4. the chain letter ============ */
+.ty-mail { position: fixed; z-index: 9; right: 92px; top: 46%; max-width: 218px; padding: 6px 10px; cursor: pointer; text-align: left; font: 700 13px/1.3 'Comic Sans MS', 'Trebuchet MS', sans-serif; background: #ffff99; color: #000080; border: 2px outset #fff; box-shadow: 3px 3px 0 rgba(0,0,0,.35); animation: tyNudge 1.6s steps(2) infinite; }
+.ty-mail.read { animation: none; opacity: .75; font-weight: 400; } .ty-mail:focus-visible { outline: 2px dashed currentColor; outline-offset: 2px; }
+@keyframes tyNudge { 50% { translate: 0 -3px; } }
+.ty-mail-2008 { font: 700 12px 'Lucida Grande', Tahoma, sans-serif; background: #fff; color: #c00; border: 1px solid #b7c4dd; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,.25); animation: none; }
+.ty-mail-2016, .ty-mail-2024 { font: 500 13px system-ui, -apple-system, 'Segoe UI', sans-serif; background: #fff; color: #1c1c1e; border: 0; border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,.2); animation: none; padding: 9px 12px; }
+.ty-mail-2030 { font: 500 13px system-ui, sans-serif; background: #f4fff0; color: #1d3b1a; border: 1px solid #7fb069; border-radius: 10px; box-shadow: none; animation: none; padding: 8px 12px; }
+html body #win-chain .app-body { background: #fff; }
+.ty-ch { padding: 10px 12px 12px; color: #000; font: 13px/1.45 Arial, Helvetica, sans-serif; overflow-wrap: anywhere; }
+.ty-ch p { margin: 0 0 8px; } .ty-ch h2 { margin: 0 0 6px; font: 700 16px/1.25 Arial, sans-serif; color: inherit; text-transform: none; letter-spacing: 0; }
+.ty-ch-body { padding: 10px; background: #fffff0; border: 1px dashed #999; font: 14px/1.4 'Comic Sans MS', 'Trebuchet MS', sans-serif; color: #800080; } .ty-ch-body b { color: #d00; }
+.ty-ch-body pre { margin: 0 0 8px; font: 700 13px/1.1 'Courier New', monospace; color: #7a2f8f; }
+html body #win-chain .ty-ch button { font: 700 13px Arial, sans-serif; text-transform: none; letter-spacing: 0; cursor: pointer; }
+html body #win-chain .ty-ch button:focus-visible, .ty-ch input:focus-visible, .ty-ch summary:focus-visible { outline: 2px dashed currentColor; outline-offset: 2px; }
+.ty-ch-btns { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; } .ty-ch-me { font-style: italic; } .ty-ch-kept { font-size: 11px; color: #555; margin: 8px 0 0 !important; }
+.ty-ch-done:empty { display: none; }
+.ty-ch-99 { background: #c0c0c0; } .ty-ch-99 dl { display: grid; grid-template-columns: auto 1fr; gap: 1px 8px; margin: 0 0 8px; padding: 6px; background: #fff; border: 2px inset #eee; font: 12px 'Courier New', monospace; } .ty-ch-99 dd { margin: 0; } .ty-ch-99 dt { font-weight: 700; }
+.ty-ch-99 fieldset { margin: 8px 0 0; padding: 6px 8px; border: 2px groove #fff; } .ty-ch-99 input[type=range] { width: 100%; } .ty-ch-99 output { display: block; min-height: 3.2em; font: 12px 'Courier New', monospace; }
+html body #win-chain .ty-ch-99 button { padding: 4px 12px; background: #c0c0c0; color: #000; border: 2px outset #f2f2f2; border-radius: 0; box-shadow: none; }
+.ty-ch-99 .ty-ch-done { padding: 6px; background: #000080; color: #fff; font: 700 13px 'Courier New', monospace; }
+.ty-ch-08 { font-family: 'Lucida Grande', Tahoma, Verdana, sans-serif; font-size: 12px; } .ty-ch-08 h2 { font: 700 15px 'Lucida Grande', Tahoma, sans-serif; } .ty-ch-from { color: #555; padding-bottom: 6px; border-bottom: 1px solid #ccd; }
+.ty-ch-08 blockquote { margin: 0 0 0 6px; padding-left: 8px; border-left: 2px solid #6a5acd; color: #444; } .ty-ch-08 .ty-ch-me { background: #fff8c4; padding: 4px 6px; }
+.ty-ch-sigs { margin-top: 10px; color: #555; } .ty-ch-sigs p { margin: 0 0 8px; } .ty-ch-sigs i { color: #d6247a; }
+.ty-ch-16 { font: 14px/1.4 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; color: #1c1e21; } .ty-ch-why { font-size: 12px; color: #65676b; }
+.ty-ch-who { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; } .ty-ch-who > span { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: #e4e6eb; font-size: 20px; } .ty-ch-who p { margin: 0; } .ty-ch-who small { display: block; color: #65676b; }
+.ty-ch-shot { position: relative; margin: 0 0 8px; padding: 12px 14px 22px; background: #2b2b2b; overflow: hidden; } .ty-ch-shot .ty-ch-body { rotate: -1.2deg; font-size: 11px; filter: contrast(1.25) saturate(1.3) blur(.3px); max-height: 190px; overflow: hidden; }
+.ty-ch-shot > i { position: absolute; right: 8px; bottom: 4px; font: 10px system-ui, sans-serif; color: #aaa; font-style: normal; }
+.ty-ch-counts { color: #65676b; font-size: 13px; padding-bottom: 6px; border-bottom: 1px solid #dadde1; }
+html body #win-chain .ty-ch-16 button { flex: 1; padding: 7px 4px; border: 0; border-radius: 6px; background: none; color: #65676b; font: 600 13px system-ui, sans-serif; box-shadow: none; } html body #win-chain .ty-ch-16 button[aria-pressed=true] { color: #0866ff; }
+.ty-ch-24 { font: 14px/1.45 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; color: #1f1f1f; } .ty-ch-24 h2 { font: 400 20px system-ui, sans-serif; }
+.ty-ch-ai { margin: 0 0 10px; padding: 12px 14px; border-radius: 14px; background: linear-gradient(135deg, #f1ecff, #fff0ea); } .ty-ch-ai b { color: #5b47c7; } .ty-ch-ai p { margin: 4px 0; font-size: 15px; } .ty-ch-ai small { color: #777; }
+html body #win-chain .ty-ch-24 button { padding: 6px 14px; border: 1px solid #c4c7c5; border-radius: 999px; background: #fff; color: #0b57d0; font: 500 13px system-ui, sans-serif; box-shadow: none; }
+.ty-ch-24 .ty-ch-me { font-style: normal; font-size: 12px; color: #5f6368; } .ty-ch summary { cursor: pointer; margin: 6px 0; } .ty-ch-24 .ty-ch-done { font-size: 12px; color: #5f6368; }
+html body.era-2030 #win-chain .app-body { background: #f4fff0; }
+.ty-ch-30 { font: 14px/1.5 system-ui, sans-serif; color: #1d3b1a; padding: 16px; } .ty-ch-30 h2 { font: 300 24px Georgia, serif; }
+.ty-ch-30 ol { list-style: none; margin: 10px 0; padding: 0 0 0 14px; border-left: 2px solid #7fb069; } .ty-ch-30 li { position: relative; margin: 0 0 8px; } .ty-ch-30 li::before { content: ''; position: absolute; left: -20px; top: .5em; width: 10px; height: 10px; border-radius: 50%; background: #2d6a4f; } .ty-ch-30 li b { display: inline-block; min-width: 3em; }
+html body #win-chain .ty-ch-30 button { padding: 7px 14px; border: 1px solid #2d6a4f; border-radius: 8px; background: #2d6a4f; color: #fff; font: 600 13px system-ui, sans-serif; box-shadow: none; } html body #win-chain .ty-ch-30 button + button { background: none; color: #2d6a4f; }
+
+/* ============ 5. bug garden ============ */
+html body #win-mines .app-body { background: #c0c0c0; }
+.ty-m { padding: 8px; color: #000; font: 12px/1.35 Arial, Helvetica, sans-serif; }
+.ty-m-head { display: flex; justify-content: space-between; align-items: center; gap: 6px; padding: 5px; margin-bottom: 6px; border: 3px inset #eee; }
+.ty-m-left, .ty-m-time { min-width: 46px; padding: 1px 4px; background: #000; color: #f33; font: 700 22px/1.1 'Courier New', monospace; text-align: center; border: 1px inset #888; }
+.ty-m-grid { display: grid; grid-template-columns: repeat(var(--n), 1fr); width: min(100%, calc(var(--n) * 32px)); margin: 0 auto; border: 3px inset #eee; touch-action: manipulation; }
+html body #win-mines .ty-m button { text-transform: none; letter-spacing: 0; cursor: pointer; box-shadow: none; font: 700 12px Arial, sans-serif; color: #000; }
+html body #win-mines .ty-m-grid button { aspect-ratio: 1; min-width: 0; padding: 0; margin: 0; border-radius: 0; font: 900 clamp(11px, calc(120px / var(--n) + 3px), 20px)/1 'Arial Black', Arial, sans-serif; -webkit-user-select: none; user-select: none; }
+html body #win-mines .ty-m-grid button.shut { border: 3px outset #dff5c8; background: #8fd16a; background-image: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35) 0 2px, transparent 3px), radial-gradient(circle at 70% 65%, rgba(0,80,0,.25) 0 2px, transparent 3px); }
+html body #win-mines .ty-m-grid button.open { border: 1px solid #b89f74; background: #ecd9a8; }
+html body #win-mines .ty-m-grid button.bug { background: #ffb3a8; } html body #win-mines .ty-m-grid button.hint { outline: 3px solid #ffd400; outline-offset: -3px; animation: tyNudge .8s steps(2) infinite; }
+html body #win-mines .ty-m-grid button:focus-visible { outline: 2px solid #000; outline-offset: -2px; box-shadow: inset 0 0 0 4px #fff; position: relative; z-index: 1; }
+html body #win-mines .ty-m-grid .n1 { color: #0a3cc9; } html body #win-mines .ty-m-grid .n2 { color: #0a7d32; } html body #win-mines .ty-m-grid .n3 { color: #d1181b; } html body #win-mines .ty-m-grid .n4 { color: #5b189c; } html body #win-mines .ty-m-grid .n5 { color: #8a1f11; } html body #win-mines .ty-m-grid .n6 { color: #0d7f86; } html body #win-mines .ty-m-grid .n7, html body #win-mines .ty-m-grid .n8 { color: #222; }
+html body #win-mines .ty-m-face { width: 40px; height: 36px; padding: 0; font-size: 24px; line-height: 1; background: #c0c0c0; border: 3px outset #f2f2f2; border-radius: 0; }
+.ty-m-msg { min-height: 2.7em; margin: 6px 2px 2px; font-weight: 700; } .ty-m-foot { margin: 4px 2px 0; font-size: 11px; opacity: .85; }
+.ty-m-tools { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; } .ty-m-tools:empty { display: none; }
+html body #win-mines .ty-m-tools button { padding: 4px 10px; background: #c0c0c0; border: 2px outset #f2f2f2; border-radius: 0; }
+/* 2004–2008: glossy lawn */
+html body.era-2004 #win-mines .app-body, html body.era-2006 #win-mines .app-body, html body.era-2008 #win-mines .app-body { background: linear-gradient(#e9f7ff, #bfe3ff); }
+.ty-m04 { font-family: 'Trebuchet MS', Verdana, sans-serif; } .ty-m04 .ty-m-head, .ty-m04 .ty-m-grid { border: 1px solid #5d93c9; border-radius: 8px; overflow: hidden; } .ty-m04 .ty-m-head { background: rgba(255,255,255,.6); }
+.ty-m04 .ty-m-left, .ty-m04 .ty-m-time { border-radius: 5px; background: #12314f; color: #9fe8ff; border: 0; font-size: 18px; }
+html body #win-mines .ty-m04 .ty-m-grid button.shut { border: 1px solid #3f9a2c; background: linear-gradient(#c9f5a4 0, #86d75b 48%, #62c23a 52%, #8fdc66 100%); }
+html body #win-mines .ty-m04 .ty-m-face, html body #win-mines .ty-m04 .ty-m-tools button { border: 1px solid #5d93c9; border-radius: 12px; background: linear-gradient(#fff, #cfe6ff); font-family: inherit; }
+/* 2010: soft, rounded, share-ready */
+html body.era-2010 #win-mines .app-body { background: #f6f3ec; }
+.ty-m10 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; } .ty-m10 .ty-m-head { border: 0; } .ty-m10 .ty-m-grid { border: 0; gap: 3px; }
+.ty-m10 .ty-m-left, .ty-m10 .ty-m-time { background: none; border: 0; color: #444; font: 300 22px 'Helvetica Neue', Arial, sans-serif; }
+html body #win-mines .ty-m10 .ty-m-grid button { border-radius: 8px; } html body #win-mines .ty-m10 .ty-m-grid button.shut { border: 0; background: linear-gradient(#9fdc7c, #6fbf4b); box-shadow: inset 0 -3px 0 rgba(0,0,0,.15); } html body #win-mines .ty-m10 .ty-m-grid button.open { border: 0; background: #e6dcc2; }
+html body #win-mines .ty-m10 .ty-m-face { border: 0; background: none; } html body #win-mines .ty-m10 .ty-m-tools button { border: 0; border-radius: 4px; background: #3b5fa8; color: #fff; padding: 7px 12px; }
+/* 2014–2024: flat, monetised */
+html body.era-2014 #win-mines .app-body, html body.era-2016 #win-mines .app-body, html body.era-2024 #win-mines .app-body { background: #fff; }
+html body.era-2024 #win-mines .app-body { max-height: calc(100vh - 170px); } /* the 2024 skin squeezes window bodies to ~310px; the game needs its header */
+.ty-m14 { padding: 14px; font: 13px/1.4 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; color: #1c1c1e; } .ty-m14 .ty-m-head { border: 0; padding: 0; margin-bottom: 10px; } .ty-m14 .ty-m-grid { border: 0; gap: 4px; width: min(100%, 210px); } .ty-m24 .ty-m-grid { width: min(100%, 180px); }
+.ty-m14 .ty-m-left, .ty-m14 .ty-m-time { background: none; border: 0; color: #1c1c1e; font: 600 15px system-ui, sans-serif; }
+html body #win-mines .ty-m14 .ty-m-grid button { border: 0; border-radius: 6px; font: 700 16px system-ui, sans-serif; } html body #win-mines .ty-m14 .ty-m-grid button.shut { background: #34c759; } html body #win-mines .ty-m14 .ty-m-grid button.open { background: #f2f2f7; }
+html body #win-mines .ty-m14 .ty-m-face { width: auto; height: auto; padding: 6px 12px; border: 0; border-radius: 999px; background: #f2f2f7; font: 600 13px system-ui, sans-serif; }
+html body #win-mines .ty-m14 .ty-m-tools button { flex: 1; padding: 10px; border: 0; border-radius: 10px; background: #0a66ff; color: #fff; font: 600 14px system-ui, sans-serif; }
+html body #win-mines .ty-m14 .ty-m-auto { background: linear-gradient(135deg, #7b5cff, #ff6fa5); } .ty-m14 .ty-m-msg { font-weight: 600; } .ty-m14 .ty-m-foot { color: #8e8e93; }
+/* 2030: as hard as you like */
+html body.era-2030 #win-mines .app-body { background: #f4fff0; }
+.ty-m30 { font-family: system-ui, sans-serif; color: #1d3b1a; padding: 14px; } .ty-m30 .ty-m-head { border: 0; padding: 0; } .ty-m30 .ty-m-grid { border: 0; gap: 2px; width: min(100%, calc(var(--n) * 30px)); }
+.ty-m30 .ty-m-left, .ty-m30 .ty-m-time { background: none; border: 0; color: #2d6a4f; font: 300 22px Georgia, serif; }
+html body #win-mines .ty-m30 .ty-m-grid button { border-radius: 5px; } html body #win-mines .ty-m30 .ty-m-grid button.shut { border: 0; background: #8fcf74; } html body #win-mines .ty-m30 .ty-m-grid button.open { border: 0; background: #e9efdc; }
+html body #win-mines .ty-m30 .ty-m-face { border: 0; background: none; } .ty-m30 select { font: inherit; padding: 4px 6px; border: 1px solid #7fb069; border-radius: 8px; background: #fff; color: inherit; max-width: 100%; } .ty-m30 label { font-size: 14px; }
+
+/* ============ small screens, reduced motion ============ */
+@media (max-width: 700px) {
+  #tyPet, #tyPet[class] { bottom: 38px; width: 38px; } #tyPet[class] .ty-pet-b { width: 38px; height: 38px; } /* small enough to pass under the hit counter */ .ty-note { left: 150px; bottom: 44px; max-width: calc(100vw - 158px); } .ty-note-2014, .ty-note-2030:not(:has(.ty-rest)) { left: 150px; bottom: 44px; width: auto; right: 8px; max-width: none; }
+  .ty-mail { top: auto; right: 8px; bottom: 124px; max-width: 220px; } .ty-mail-2016, .ty-mail-2024 { bottom: 184px; } .ty-mail-2030 { bottom: 256px; } #tyPet .ty-pet-fx { max-width: 110px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #tyPet, #tyPet .ty-pet-b, #tyPet .ty-eye, #tyPet.ty-hop, .ty-mail, .ty-note-2014, .ty-sv-clock, .ty-sv-dim, .ty-eq b, .ty-m-grid button.hint { animation: none !important; transition: none !important; }
+  .ty-bub { animation: none; bottom: auto; top: calc(12% + (var(--s) - 90px) * 3.2); }
+}

@@ -1,0 +1,71 @@
+/* type.css: the project's own typefaces, self-hosted so the prototype works offline.
+   (Each era still uses its period fonts; these are for the project's voice and the 2030 worlds.)
+
+   FK Raster Grotesk Sharp (Florian Karsten) and ABC Areal, Areal Mono, Areal Semi Mono (Dinamo for Are.na) are TRIAL fonts:
+   fine for the thesis, check each licence before any public or commercial launch.
+   The Raster trial has no curly quotes, %, &, @, # or arrows; those characters fall back to the next font in the stack.
+
+   National Park (OFL) and Nanum Pen Script (OFL) are bundled; licences are in /fonts. */
+
+@font-face {
+  font-family: 'National Park';
+  src: url('../../fonts/NationalPark-Variable.woff2') format('woff2');
+  font-weight: 200 800; font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'National Park';
+  src: url('../../fonts/NationalPark-Variable-ext.woff2') format('woff2');
+  font-weight: 200 800; font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+20A0-20AB, U+20AD-20C0, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* The visitor's handwriting (was Caveat). Nanum Pen Script draws small, so it is scaled up to sit at the same sizes. */
+@font-face {
+  font-family: 'Nanum Pen Script';
+  src: url('../../fonts/NanumPenScript-Regular.woff2') format('woff2');
+  font-weight: 400 700; font-display: swap; size-adjust: 128%;
+}
+
+@font-face {
+  font-family: 'FK Raster Grotesk Sharp';
+  src: url('../../fonts/FKRasterGroteskTrial-Sharp.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face { font-family: 'Areal'; src: url('../../fonts/areal/ABCArealTrial-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Areal'; src: url('../../fonts/areal/ABCArealTrial-RegularItalic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Areal'; src: url('../../fonts/areal/ABCArealTrial-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Areal'; src: url('../../fonts/areal/ABCArealTrial-MediumItalic.woff2') format('woff2'); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Areal'; src: url('../../fonts/areal/ABCArealTrial-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Areal'; src: url('../../fonts/areal/ABCArealTrial-BoldItalic.woff2') format('woff2'); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Areal Mono'; src: url('../../fonts/areal/ABCArealMonoTrial-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Areal Mono'; src: url('../../fonts/areal/ABCArealMonoTrial-RegularItalic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Areal Mono'; src: url('../../fonts/areal/ABCArealMonoTrial-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Areal Mono'; src: url('../../fonts/areal/ABCArealMonoTrial-MediumItalic.woff2') format('woff2'); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Areal Mono'; src: url('../../fonts/areal/ABCArealMonoTrial-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Areal Mono'; src: url('../../fonts/areal/ABCArealMonoTrial-BoldItalic.woff2') format('woff2'); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Areal Semi Mono'; src: url('../../fonts/areal/ABCArealSemiMonoTrial-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Areal Semi Mono'; src: url('../../fonts/areal/ABCArealSemiMonoTrial-RegularItalic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Areal Semi Mono'; src: url('../../fonts/areal/ABCArealSemiMonoTrial-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Areal Semi Mono'; src: url('../../fonts/areal/ABCArealSemiMonoTrial-MediumItalic.woff2') format('woff2'); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Areal Semi Mono'; src: url('../../fonts/areal/ABCArealSemiMonoTrial-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Areal Semi Mono'; src: url('../../fonts/areal/ABCArealSemiMonoTrial-BoldItalic.woff2') format('woff2'); font-weight: 700; font-style: italic; font-display: swap; }
+
+:root {
+  --ts-raster: 'FK Raster Grotesk Sharp', 'Areal Mono', 'IBM Plex Mono', 'Courier New', monospace;
+  --ts-park: 'National Park', 'Helvetica Neue', Arial, sans-serif;
+  --ts-areal: 'Areal', Arial, 'Helvetica Neue', sans-serif;
+  --ts-areal-mono: 'Areal Mono', 'IBM Plex Mono', 'Courier New', monospace;
+  --ts-areal-semi: 'Areal Semi Mono', 'Areal', Arial, sans-serif;
+  --ts-hand: 'Nanum Pen Script', 'Comic Sans MS', cursive;
+}
+
+/* VT323 (OFL), self-hosted for the boot screen and pixel labels */
+@font-face { font-family: 'VT323'; src: url('../../fonts/VT323-Regular.woff2') format('woff2'); font-display: swap; }
+
+/* Sour Gummy (OFL): the sticky note on the welcome card. Bodoni Moda (OFL): the voice of the machine,
+   used wherever the text is "too polished": the autopilot future and the 2024 rewrite suggestions. */
+@font-face { font-family: 'Sour Gummy'; src: url('../../fonts/SourGummy-Variable.woff2') format('woff2'); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: 'Bodoni Moda'; src: url('../../fonts/BodoniModa-Variable.woff2') format('woff2'); font-weight: 400 900; font-display: swap; }
+@font-face { font-family: 'Bodoni Moda'; src: url('../../fonts/BodoniModa-Variable-Italic.woff2') format('woff2'); font-weight: 400 900; font-style: italic; font-display: swap; }
+:root { --ts-gummy: 'Sour Gummy', 'Nanum Pen Script', 'Comic Sans MS', cursive; --ts-bodoni: 'Bodoni Moda', 'Didot', 'Bodoni 72', Georgia, serif; }
