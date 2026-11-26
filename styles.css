@@ -175,7 +175,8 @@ p{text-wrap:pretty}
 .pipe p{margin:0;color:var(--ink-2);font-size:15px}
 .pipe .ticks{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:15px;color:var(--ink-2)}
 .pipe .ticks li{padding:0}
-.pipe .ticks li::before{content:"✓";color:var(--clear);margin-right:10px}
+.pipe .ticks li{position:relative;padding-left:18px}
+.pipe .ticks li::before{content:"";position:absolute;left:0;top:.65em;width:6px;height:6px;border-radius:50%;background:var(--clear)}
 .lock{display:flex;align-items:center;justify-content:center;padding:24px 16px;background:var(--g-dusk);border:0}
 .lock img{width:min(230px,100%);filter:drop-shadow(0 24px 30px rgba(0,0,0,.4))}
 
